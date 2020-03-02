@@ -1,0 +1,45 @@
+{block content}
+    <div class="row">
+        <div class="col-12">
+            <h1>Seznam funkcí</h1>
+        </div>
+    </div>
+    <div class="row" n:if="count($listFunctions) > 0">
+        <div class="col-12">
+            <table class="table table-responsive" >
+                <tr>
+                    <th>Kód</th>
+                    <th>Název</th>
+                    <th>Popis</th>
+                    <th></th>
+                </tr>
+                {foreach $listFunctions as $item}
+                    <tr>
+                        <td>{$item->code} </td>
+                        <td>{$item->name}</td>
+                        <td>{$item->description}</td>
+                        <td>
+                            <a n:href="Functions:edit $item->id">
+                                <i class="material-icons">edit</i>
+                            </a>
+                            <a n:href="Functions:delete $item->id">
+                                <i class="material-icons text-danger">clear</i>
+                            </a>
+                        </td>
+                    </tr>
+                {/foreach}
+            </table>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-12 mt-3 d-flex">
+            <a class="btn btn-primary mb-3 mr-3" n:href="Homepage:">Zpět</a>
+            <a class="btn btn-primary mb-3" n:href="Functions:create">Vytvořit novou funkci</a>
+        </div>
+    </div>
+    <div class="row" n:if="count($listFunctions) == 0">
+        <div class="col-12 mt-3">
+            <h2>Nejsou zadané žádné funkce</h2>
+        </div>
+    </div>
+{/block}

@@ -1,0 +1,74 @@
+{block content}
+
+
+    <div class="row mb-3">
+        <div class="col-12">
+            <h1>Vyhledat zaměstnance</h1>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-12 col-md-6">
+            <div class="row">
+                <div class="col-12">
+                    <h2 class="h4">Kteří mají funkci s kódem</h2>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-12">
+                    {form searchHasCodeForm}
+                          {input code}
+                        <div class="mt-3">
+                            {input send}
+                        </div>
+                    {/form}
+                </div>
+            </div>
+        </div>
+        <div class="col-12 col-md-6">
+            <div class="row">
+                <div class="col-12">
+                    <h2 class="h4">Kteří NEmají funkci s kódem</h2>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-12">
+                    {form searchHasNotCodeForm}
+                        {input code}
+                        <div class="mt-3">
+                            {input send}
+                        </div>
+                    {/form}
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <section class="mt-5">
+        <div class="row">
+            <div class="col-12">
+                <h2 class="h3">Nastavení</h2>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-12">
+                <a n:href="Employee:create" class="btn btn-primary">Vytvořit nového zaměstnance</a>
+                <a n:href="Employee:list" class="btn btn-primary">Seznam zaměstnanců</a>
+            </div>
+        </div>
+        <div class="row mt-3">
+            <div class="col-12">
+                <a n:href="Functions:create" class="btn btn-primary">Vytvořit novou funkci</a>
+                <a n:href="Functions:list" class="btn btn-primary">Seznam funkcí</a>
+            </div>
+        </div>
+
+    </section>
+
+
+{/block}
+
+
+
+

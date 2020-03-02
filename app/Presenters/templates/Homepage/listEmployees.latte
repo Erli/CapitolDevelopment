@@ -1,0 +1,30 @@
+<div class="row" n:if="count($listEmployees) > 0">
+    <div class="col-12">
+        <table class="table table-responsive" >
+            <tr>
+                <th>Kód</th>
+                <th>Jméno</th>
+                <th>Přijmení</th>
+                <th>Funkce</th>
+            </tr>
+            {foreach $listEmployees as $item}
+                <tr>
+                    <td>{$item->code} </td>
+                    <td>{$item->name} </td>
+                    <td>{$item->surname}</td>
+                    <td>
+                        {foreach $item->related('employees_functions') as $functions}
+                            {$functions->functions->code} - {$functions->functions->name}<br /><small>{$functions->functions->description}</small><br /><br />
+                        {/foreach}
+                    </td>
+                </tr>
+            {/foreach}
+        </table>
+    </div>
+</div>
+<div class="row">
+    <div class="col-12 mt-3 d-flex">
+        <a class="btn btn-primary mb-3 mr-3" n:href="Homepage:">Zpět</a>
+        <a class="btn btn-primary mb-3" n:href="Employee:create">Vytvořit nového zaměstnance</a>
+    </div>
+</div>

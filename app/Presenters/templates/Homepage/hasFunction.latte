@@ -1,0 +1,18 @@
+{block content}
+    <div class="row">
+        <div class="col-12">
+            <h1>Seznam zaměstnanců s funkcí {$code}</h1>
+        </div>
+    </div>
+    <div class="row" n:if="!$function">
+        <div class="col-12 mt-3">
+            <div class="alert alert-danger">Funkce s kódem <strong>{$code}</strong> nebyla nalezena</div>
+        </div>
+    </div>
+    <div class="row" n:if="$function && count($listEmployees) == 0">
+        <div class="col-12 mt-3">
+            <div class="alert alert-danger">Zaměstnanci s funkcí <strong>{$code}</strong> nebyli nalezeni</div>
+        </div>
+    </div>
+    {include 'listEmployees.latte'}
+{/block}
